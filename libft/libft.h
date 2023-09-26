@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:52:29 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/11 18:53:08 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:42:39 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_list
 {
 	int		content;
     int     pos;
+	int		chunk;
 	struct s_list	*next;
 }			t_list;
 
