@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:18 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/20 17:42:25 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:01:20 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void   ft_px(t_list **stack_reciver, t_list **stack_giver)
 {
-    t_list *tmp;
+	t_list *tmp;
 
-    if (*stack_giver == NULL)
-        ft_ferror();
-    tmp = (*stack_giver)->next;
-    (*stack_giver)->next = *stack_reciver;
-    *stack_reciver = *stack_giver;
-    *stack_giver = tmp;
+	if (*stack_giver == NULL)
+		ft_ferror();
+	tmp = (*stack_giver)->next;
+	(*stack_giver)->next = *stack_reciver;
+	*stack_reciver = *stack_giver;
+	*stack_giver = tmp;
 }
 void   ft_push(char *str, t_list **stack_reciver, t_list **stack_giver)
 {
-    if (str[1] == 'a')
-        ft_px(stack_reciver, stack_giver);
-    else if (str[1] == 'b')
-        ft_px(stack_reciver, stack_giver);
-    else
-        ft_ferror();
-    ft_printf("%s\n", str);
+	if (str[1] == 'a')
+		ft_px(stack_reciver, stack_giver);
+	else if (str[1] == 'b')
+		ft_px(stack_reciver, stack_giver);
+	else
+		ft_ferror();
+	ft_printf("%s\n", str);
 }

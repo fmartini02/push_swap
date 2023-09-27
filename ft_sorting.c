@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:06:44 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/20 18:59:43 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:14:11 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void    ft_sorting(t_list **a, t_list **b)
 
     s = 0;
     ft_get_position(a);
+    ft_chunking(a, b);
     ft_sort_a(a,b);
     while(ft_check_order_b(a, b) != 1 )
         ft_reconstruct(a, b);

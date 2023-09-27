@@ -6,7 +6,7 @@
 #    By: fmartini <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2023/09/20 17:55:48 by fmartini         ###   ########.fr        #
+#    Updated: 2023/09/27 16:25:44 by fmartini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc -g
 
 SRC = main.c ft_sorting.c push_utils.c ft_push.c ft_swap.c ft_rotate.c ft_check_av.c \
 ft_splitfication.c ft_optimizer.c ft_cases_a.c ft_optimizer_utils.c ft_sorting_utils.c \
-ft_sorty_utils.c
+ft_sorty_utils.c ft_chunking.c 
 
 OBJ_S = $(SRC:.c=.o)
 
