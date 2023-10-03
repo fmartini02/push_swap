@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/27 16:58:00 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:12:45 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void    ft_sorty(t_list **a, t_list **b);
 int     ft_check_order_b(t_list **a, t_list **b);
 void    ft_sorty_utils (t_list **b, t_list **a);
 void    ft_chunking(t_list **a, t_list **b);
+void    ft_putin_chunk(t_list **a, int c_size, int n_chunk);
+int     ft_n_chunk(int size);
 
 #endif

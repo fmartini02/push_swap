@@ -6,70 +6,108 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:06:44 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/27 17:14:11 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:24:41 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
+// void ft_sort_a(t_list **a, t_list **b)
+// {
+//     t_list  *pri;
+//     t_list  *sec;
+//     t_list  *ult;
+//     int     t;
+
+//     pri = *a;
+//     sec = pri->next;
+//     ult = ft_lstlast(*a);
+//     t = 0;
+//     while (ft_check_order(a)!= 1)
+//     {
+//         if(ult->pos == ft_lstsize(*a))
+//         {
+//             if(ult->pos - pri->pos ==1 && t++)
+//                 ft_rotate("ra", a, b);
+//         }
+//         if(pri->pos > sec->pos && pri->pos > ult->pos) //pri magg.
+//             ft_rotate("ra", a, b);
+//         else if(sec->pos > pri->pos && sec->pos > ult->pos) //sec magg.
+//             ft_sec_magg(a, b);
+//         else if(ult->pos > pri->pos && ult->pos > sec->pos) //ult magg.
+//             ft_ult_magg(a, b);
+//         ft_sort_a(a, b);
+//     }
+//     while(t-- > 0)
+//         ft_rotate("rra", a, b);
+// }
+
 void ft_sort_a(t_list **a, t_list **b)
 {
-    t_list  *pri;
-    t_list  *sec;
-    t_list  *ult;
-    int     t;
-
-    pri = *a;
-    sec = pri->next;
-    ult = ft_lstlast(*a);
-    t = 0;
-    while (ft_check_order(a)!= 1)
-    {
-        if(ult->pos == ft_lstsize(*a))
-        {
-            if(ult->pos - pri->pos ==1 && t++)
-                ft_rotate("ra", a, b);
-        }
-        if(pri->pos > sec->pos && pri->pos > ult->pos) //pri magg.
+    t_list *tmp;
+    int     n_c;
+    int     size;
+    
+    tmp = *a;
+    n_c = 1;
+    size = ft_lstsize(*a);
+    while (tmp)
+	{
+		if(tmp->chunk == (n_c + 1))
+			ft_push("pb", b, a);
+		else if (tmp->chunk == n_c)
+		{
+			ft_push("pb", b, a);
+			ft_rotate("rb", a, b);
+		}
+		else
             ft_rotate("ra", a, b);
-        else if(sec->pos > pri->pos && sec->pos > ult->pos) //sec magg.
-            ft_sec_magg(a, b);
-        else if(ult->pos > pri->pos && ult->pos > sec->pos) //ult magg.
-            ft_ult_magg(a, b);
-        ft_sort_a(a, b);
-    }
-    while(t-- > 0)
-        ft_rotate("rra", a, b);
+		if(tmp == NULL)
+		{
+			if(n_c < ft_n_chunk(size))
+				n_c +=2;
+			else
+				return ;
+			tmp = *a;
+		}
+        tmp = *a;
+	}
 }
+
+// void    ft_sort_b(t_list **a, t_list **b)
+// {
+//     t_list  *pri;
+//     t_list  *sec;
+//     t_list  *ult;
+
+//     if(*b == NULL || (*b)->next == NULL)
+//         return ;
+//     if((*b)->next->next == NULL)
+//     {
+//         if((*b)->pos < (*b)->next->pos)
+//             ft_swap("sb", a, b);
+//         return ;
+//     }
+//     pri = *b;
+//     sec = pri->next;
+//     ult = ft_lstlast(*b);
+//     if(pri->pos > sec->pos && pri->pos < ult->pos) //ult magg
+//        ft_rotate("rrb", a, b);
+//     else if (pri->pos < sec->pos && pri->pos > ult->pos) // sec magg
+//         ft_swap("sb", a, b);
+//     else if(pri->pos < sec->pos && pri->pos < ult->pos) // pri min
+//         ft_pri_min_b(a, b);
+//     else
+//     {
+//         if(ft_check_order(a) == 1)
+//             ft_reconstruct(a, b);
+//     } 
+// }
+
 void    ft_sort_b(t_list **a, t_list **b)
 {
-    t_list  *pri;
-    t_list  *sec;
-    t_list  *ult;
 
-    if(*b == NULL || (*b)->next == NULL)
-        return ;
-    if((*b)->next->next == NULL)
-    {
-        if((*b)->pos < (*b)->next->pos)
-            ft_swap("sb", a, b);
-        return ;
-    }
-    pri = *b;
-    sec = pri->next;
-    ult = ft_lstlast(*b);
-    if(pri->pos > sec->pos && pri->pos < ult->pos) //ult magg
-       ft_rotate("rrb", a, b);
-    else if (pri->pos < sec->pos && pri->pos > ult->pos) // sec magg
-        ft_swap("sb", a, b);
-    else if(pri->pos < sec->pos && pri->pos < ult->pos) // pri min
-        ft_pri_min_b(a, b);
-    else
-    {
-        if(ft_check_order(a) == 1)
-            ft_reconstruct(a, b);
-    } 
 }
 
 void    ft_reconstruct(t_list **a, t_list **b)

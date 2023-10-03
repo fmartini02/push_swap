@@ -6,7 +6,7 @@
 #    By: fmartini <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2023/09/27 16:25:44 by fmartini         ###   ########.fr        #
+#    Updated: 2023/09/28 16:50:08 by fmartini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,10 @@ fclean: clean
 	@ /bin/rm -f $(NAME)
 	@make -s -C ./libft fclean
 
+v:	$(NAME)
+	mv push_swap ./push_swap_visualizer/build/bin && cd ./push_swap_visualizer/build/bin && ./visualizer
+	
 re: fclean all
 
 .PHONY: all bonus clean fclean re
 
-#tdtyf

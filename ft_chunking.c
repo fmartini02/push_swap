@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:17:49 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/27 17:18:09 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:13:27 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void ft_putin_chunk(t_list **a, int c_size, int n_chunk)
 			tmp->chunk = 5;
 		else if (tmp->pos >= (c_size *5) && tmp->pos <= (c_size *6) && n_chunk >= 6)
 			tmp->chunk = 6;
-		ft_printf("cont: %d\npos: %d\nchunk: %d\n\n\n",tmp->content, tmp->pos, tmp->chunk);
+		//ft_printf("cont: %d\npos: %d\nchunk: %d\n\n\n",tmp->content, tmp->pos, tmp->chunk);
 		tmp = tmp->next;
 	}
-	ft_printf("size: %d\n", ft_lstsize(*a));
+	//ft_printf("size: %d\n", ft_lstsize(*a));
 }
 
 void    ft_chunking(t_list **a, t_list **b)
@@ -74,23 +74,23 @@ void    ft_chunking(t_list **a, t_list **b)
 	size = ft_lstsize(*a);
 	c_size = ft_put_size(size, ft_n_chunk(size));
 	ft_putin_chunk(a, c_size, ft_n_chunk(size));
-	while (tmp)
-	{
-		if(tmp->chunk == n_c)
-			ft_push("pb", b, a);
-		else if (tmp->chunk == (n_c + 1))
-		{
-			ft_push("pb", b, a);
-			ft_rotate("rb", a, b);
-		}
-		tmp = tmp->next;
-		if(tmp == NULL)
-		{
-			if(n_c < ft_n_chunk(size))
-				n_c +=2;
-			else
-				return ;
-			tmp = *a;
-		}
-	}
+	// while (tmp)
+	// {
+	// 	if(tmp->chunk == n_c)
+	// 		ft_push("pb", b, a);
+	// 	else if (tmp->chunk == (n_c + 1))
+	// 	{
+	// 		ft_push("pb", b, a);
+	// 		ft_rotate("rb", a, b);
+	// 	}
+	// 	tmp = tmp->next;
+	// 	if(tmp == NULL)
+	// 	{
+	// 		if(n_c < ft_n_chunk(size))
+	// 			n_c +=2;
+	// 		else
+	// 			return ;
+	// 		tmp = *a;
+	// 	}
+	// }
 }
