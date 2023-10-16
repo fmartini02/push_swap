@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:18 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/27 16:01:20 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:07:17 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void   ft_px(t_list **stack_reciver, t_list **stack_giver)
+void	ft_px(t_list **stack_reciver, t_list **stack_giver)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (*stack_giver == NULL)
 		ft_ferror();
@@ -23,7 +23,8 @@ void   ft_px(t_list **stack_reciver, t_list **stack_giver)
 	*stack_reciver = *stack_giver;
 	*stack_giver = tmp;
 }
-void   ft_push(char *str, t_list **stack_reciver, t_list **stack_giver)
+
+void	ft_push(char *str, t_list **stack_reciver, t_list **stack_giver)
 {
 	if (str[1] == 'a')
 		ft_px(stack_reciver, stack_giver);

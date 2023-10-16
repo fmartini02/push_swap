@@ -3,154 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sorting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 17:06:44 by fmartini          #+#    #+#             */
-/*   Updated: 2023/09/29 17:24:41 by fmartini         ###   ########.fr       */
+/*   Created: 2023/10/06 17:42:36 by fmartini          #+#    #+#             */
+/*   Updated: 2023/10/13 16:57:38 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-// void ft_sort_a(t_list **a, t_list **b)
-// {
-//     t_list  *pri;
-//     t_list  *sec;
-//     t_list  *ult;
-//     int     t;
-
-//     pri = *a;
-//     sec = pri->next;
-//     ult = ft_lstlast(*a);
-//     t = 0;
-//     while (ft_check_order(a)!= 1)
-//     {
-//         if(ult->pos == ft_lstsize(*a))
-//         {
-//             if(ult->pos - pri->pos ==1 && t++)
-//                 ft_rotate("ra", a, b);
-//         }
-//         if(pri->pos > sec->pos && pri->pos > ult->pos) //pri magg.
-//             ft_rotate("ra", a, b);
-//         else if(sec->pos > pri->pos && sec->pos > ult->pos) //sec magg.
-//             ft_sec_magg(a, b);
-//         else if(ult->pos > pri->pos && ult->pos > sec->pos) //ult magg.
-//             ft_ult_magg(a, b);
-//         ft_sort_a(a, b);
-//     }
-//     while(t-- > 0)
-//         ft_rotate("rra", a, b);
-// }
-
-void ft_sort_a(t_list **a, t_list **b)
+void	ft_sorting(t_list **a, t_list **b)
 {
-    t_list *tmp;
-    int     n_c;
-    int     size;
-    
-    tmp = *a;
-    n_c = 1;
-    size = ft_lstsize(*a);
-    while (tmp)
+	t_list	*tmp;
+	int		n_c;
+	int		size;
+
+	tmp = *a;
+	n_c = 0;
+	size = ft_lstsize(*a);
+	while (*a)
 	{
-		if(tmp->chunk == (n_c + 1))
-			ft_push("pb", b, a);
-		else if (tmp->chunk == n_c)
+		ft_sort_logic_a(a, b, n_c);
+		tmp = *a;
+		if (!ft_find_chunk(a, n_c))
 		{
-			ft_push("pb", b, a);
-			ft_rotate("rb", a, b);
-		}
-		else
-            ft_rotate("ra", a, b);
-		if(tmp == NULL)
-		{
-			if(n_c < ft_n_chunk(size))
-				n_c +=2;
-			else
+			n_c += 2;
+			if (n_c > (ft_set_chunk_number(size) - 1))
+				ft_sort_b(a, b);
+			if (ft_check_order_a(a) == 1)
 				return ;
 			tmp = *a;
 		}
-        tmp = *a;
 	}
 }
 
-// void    ft_sort_b(t_list **a, t_list **b)
-// {
-//     t_list  *pri;
-//     t_list  *sec;
-//     t_list  *ult;
-
-//     if(*b == NULL || (*b)->next == NULL)
-//         return ;
-//     if((*b)->next->next == NULL)
-//     {
-//         if((*b)->pos < (*b)->next->pos)
-//             ft_swap("sb", a, b);
-//         return ;
-//     }
-//     pri = *b;
-//     sec = pri->next;
-//     ult = ft_lstlast(*b);
-//     if(pri->pos > sec->pos && pri->pos < ult->pos) //ult magg
-//        ft_rotate("rrb", a, b);
-//     else if (pri->pos < sec->pos && pri->pos > ult->pos) // sec magg
-//         ft_swap("sb", a, b);
-//     else if(pri->pos < sec->pos && pri->pos < ult->pos) // pri min
-//         ft_pri_min_b(a, b);
-//     else
-//     {
-//         if(ft_check_order(a) == 1)
-//             ft_reconstruct(a, b);
-//     } 
-// }
-
-void    ft_sort_b(t_list **a, t_list **b)
+void	ft_sort_b(t_list **a, t_list **b)
 {
+	int	n_c;
+	int	d;
+	int	buff_a;
 
-}
-
-void    ft_reconstruct(t_list **a, t_list **b)
-{
-    int t;
-
-    if(ft_lstsize(*b) <= 3)
-    {
-        ft_sorty(b, a);
-        return ;
-    }
-    t = ft_optimizer(a, b);
-    if( t > 0)
-    {
-        while(t > 0)
-        {
-            ft_rotate("rb", a, b);
-            t--;
-        }
-    }
-    else if (t < 0)
-    {
-        while(t < 0)
-        {
-            ft_rotate("rrb", a, b);
-            t++;
-        }
-    }
-    ft_push("pa", a, b);
-}
-
-
-void    ft_sorting(t_list **a, t_list **b)
-{
-    int s;
-
-    s = 0;
-    ft_get_position(a);
-    ft_chunking(a, b);
-    ft_sort_a(a,b);
-    while(ft_check_order_b(a, b) != 1 )
-        ft_reconstruct(a, b);
-    s = ft_lstsize(*b);
-    while(s-- > 0)
-        ft_push("pa", a, b);
+	n_c = ft_set_chunk_number(ft_lstsize(*b)) - 1;
+	buff_a = 0;
+	while (n_c >= 0)
+	{
+		buff_a = ft_buff_init(a, b, n_c);
+		while (buff_a-- > 0)
+			ft_rotate("rra", a, b);
+		buff_a = 0;
+		if (!ft_chunk_status(b, n_c))
+			n_c--;
+	}
 }
