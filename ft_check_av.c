@@ -6,18 +6,18 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/16 17:32:51 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:27:37 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_digit(char **av)
+void	ft_check_digit(char **av, int flag)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = flag;
 	j = 0;
 	while (av[i])
 	{
@@ -42,6 +42,8 @@ void	ft_check_dubles(t_list **stack, int ac)
 
 	tmp = *stack;
 	tmp2 = (*stack)->next;
+	if (ac == 2)
+		return ;
 	while (tmp)
 	{
 		while (tmp2)
@@ -50,6 +52,8 @@ void	ft_check_dubles(t_list **stack, int ac)
 				ft_error();
 			tmp2 = tmp2->next;
 		}
+		if (ac == 3)
+			return ;
 		tmp = tmp->next;
 		tmp2 = tmp->next;
 		if (tmp2->next == NULL)

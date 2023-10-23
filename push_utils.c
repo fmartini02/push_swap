@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:44:32 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:04:07 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_print_list(t_list *lst)
 	while (lst)
 	{
 		ft_printf("%d\n", lst->content);
+		ft_printf("pos: %d\n", lst->pos);
+		ft_printf("chunk: %d\n", lst->chunk);
 		lst = lst->next;
 	}
 	ft_printf("\n");

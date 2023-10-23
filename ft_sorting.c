@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:42:36 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:57:38 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:11:22 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_sorting(t_list **a, t_list **b)
 	tmp = *a;
 	n_c = 0;
 	size = ft_lstsize(*a);
+	if (ft_check_order_a(a) == 1)
+		return ;
 	while (*a)
 	{
 		ft_sort_logic_a(a, b, n_c);

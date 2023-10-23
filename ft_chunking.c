@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:17:49 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/16 17:42:43 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/18 16:55:16 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ void	ft_set_chunk_value(t_list **a, int c_size)
 	t_list	*tmp;
 
 	tmp = *a;
-	while (tmp)
+	while (*a)
 	{
-		tmp->chunk = tmp->pos / c_size;
-		tmp = tmp->next;
+		(*a)->chunk = (*a)->pos / c_size;
+		*a = (*a)->next;
 	}
+	*a = tmp;
 }
 
 int	ft_find_chunk(t_list **a, int chunk)
@@ -69,10 +70,8 @@ void	ft_chunking(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 	int		c_size;
-	int		n_c;
 
 	tmp = *a;
-	n_c = 1;
 	c_size = ft_set_chunk_size(ft_lstsize(*a),
 			ft_set_chunk_number(ft_lstsize(*a)));
 	ft_set_chunk_value(a, c_size);

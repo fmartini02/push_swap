@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:48:27 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/16 17:22:27 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:06:23 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_set_position(t_list **stack)
 	t_list	*comp;
 
 	current = *stack;
+	current->pos = 0;
 	while (current != NULL)
 	{
 		comp = *stack;
@@ -49,12 +50,9 @@ int	ft_check_order_a(t_list **stack)
 
 void	ft_sort_logic_a(t_list **a, t_list **b, int n_c)
 {
-	t_list	*tmp;
-
-	tmp = *a;
-	if (tmp->chunk == (n_c + 1))
+	if ((*a)->chunk == (n_c + 1))
 		ft_push("pb", b, a);
-	else if (tmp->chunk == n_c)
+	else if ((*a)->chunk == n_c)
 	{
 		ft_push("pb", b, a);
 		ft_rotate("rb", a, b);

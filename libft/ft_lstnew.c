@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:16:45 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/13 17:21:53 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 10:41:48 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	memb->content = content;
 	memb->next = NULL;
+	memb->chunk = 0;
+	memb->pos = 0;
 	return (memb);
 }

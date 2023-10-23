@@ -6,7 +6,7 @@
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:01 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:53:02 by fmartini         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:38:59 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_swapx(t_list **stack)
 
 void	ft_swap(char *s, t_list **stack_a, t_list **stack_b)
 {
+	if(stack_a == NULL || stack_b == NULL)
+		ft_ferror();
 	if (s[0] == 's' && s[1] == 'a')
 		ft_swapx(stack_a);
 	else if (s[0] == 's' && s[1] == 'b')

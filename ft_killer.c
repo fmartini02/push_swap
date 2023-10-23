@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_splitfication.c                                 :+:      :+:    :+:   */
+/*   ft_killer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 18:59:35 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/23 16:27:11 by fmartini         ###   ########.fr       */
+/*   Created: 2023/10/17 17:35:25 by fmartini          #+#    #+#             */
+/*   Updated: 2023/10/23 16:07:28 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_splitfication(char *s, t_list **stack_a, int ac)
+void	ft_free_stack(t_list **a, t_list **b)
 {
-	t_list	*t;
-	int		i;
-	char	**tmp;
+	t_list	*tmp;
 
-	i = 0;
-	tmp = ft_split(s, ' ');
-	ft_check_digit(tmp, 0);
-	while (tmp[i])
+	tmp = *a;
+	while (tmp)
 	{
-		t = ft_lstnew(ft_atoi(tmp[i++]));
-		ft_lstadd_back(stack_a, t);
+		tmp = tmp->next;
+		free(*a);
+		*a = tmp;
 	}
-	ft_check_dubles(stack_a, ac);
-	i = 0;
-	while (tmp[i])
+	tmp = *b;
+	while (tmp)
 	{
-		free(tmp[i]);
-		i++;
+		tmp = tmp->next;
+		free(*b);
+		*b = tmp;
 	}
-	free(tmp);
 }

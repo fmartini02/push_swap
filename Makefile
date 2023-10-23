@@ -6,7 +6,7 @@
 #    By: fmartini <@marvin>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2023/10/13 20:17:39 by fmartini         ###   ########.fr        #
+#    Updated: 2023/10/23 12:42:47 by fmartini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ ft_cases_a.c \
 ft_optimizer_utils.c \
 ft_sorting_utils.c \
 ft_chunking.c \
+ft_killer.c \
+ft_sort_5_utils.c \
 
 OBJ_S = $(SRC:.c=.o)
 
