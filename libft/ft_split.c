@@ -12,64 +12,71 @@
 
 #include "libft.h"
 
-static int	ft_wcount(const char *str, char c)
+static size_t	get_wc(char const *s, char c)
 {
-	int	i;
-	int	check;
+	size_t	wc;
+	int		check;
 
-	i = 0;
-	check = 0;
-	while (*str)
+	check = 1;
+	wc = 0;
+	while (*s)
 	{
-		if (*str != c && check == 0)
-		{
+		if (*s == c)
 			check = 1;
-			i++;
-		}
-		else if (*str == c)
-			check = 0;
-		str++;
-	}
-	return (i);
-}
-
-static char	*ft_ultstrdup(const char *str, int start, int finish)
-{
-	char	*word;
-	int		i;
-
-	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
-	while (start < finish)
-		word[i++] = str[start++];
-	word[i] = '\0';
-	return (word);
-}
-
-char	**ft_split(char *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	int		index;
-	char	**arr;
-
-	arr = malloc((ft_wcount(s, c) + 1) * sizeof(char *));
-	if (!arr || !s)
-		return (0);
-	i = 0;
-	j = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
-	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || s[i] == '\0') && index >= 0)
+		else
 		{
-			arr[j++] = ft_ultstrdup(s, index, i);
-			index = -1;
+			if (check)
+				wc++;
+			check = 0;
 		}
+		s++;
+	}
+	return (wc);
+}
+
+static char	*initialize_c(const char *s, char c, size_t *skip_c)
+{
+	char	*str;
+	size_t	wl;
+
+	wl = 0;
+	*skip_c = 0;
+	while (*s == c)
+	{
+		*skip_c = *skip_c + 1;
+		s++;
+	}
+	while (s[wl] != c && s[wl] != 0)
+		wl++;
+	str = (char *)malloc((wl + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (*s != c && *s != '\0')
+		*str++ = *s++;
+	*str = 0;
+	str -= wl;
+	*skip_c += wl;
+	return (str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split;
+	size_t	skip_c;
+	size_t	wc;
+	size_t	i;
+
+	i = 0;
+	wc = get_wc(s, c);
+	split = (char **)malloc((wc + 1) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	while (i < wc)
+	{
+		split[i] = initialize_c(s, c, &skip_c);
+		s += skip_c;
 		i++;
 	}
-	arr[j] = 0;
-	return (arr);
+	split[i] = 0;
+	return (split);
 }
