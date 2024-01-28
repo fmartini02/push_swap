@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/25 15:42:08 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:44:27 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	ft_sort_small(t_list **a, t_list **b)
 	i = ft_lstsize(*a);
 	if (i == 1)
 		return ;
+	if (ft_check_order_a(*a) == 1)
+			return ;
 	else if (i == 2)
 	{
 		if ((*a)->pos > (*a)->next->pos)
