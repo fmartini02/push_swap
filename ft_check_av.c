@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_av.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <fmartini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/12 16:19:55 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/24 20:08:01 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	ft_check_dubles(t_list **stack, int ac)
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	tmp = *stack;
-	tmp2 = (*stack)->next;
 	if (ac == 1)
 		return ;
+	tmp = *stack;
 	while (tmp)
 	{
+		tmp2 = tmp->next;
 		while (tmp2)
 		{
 			if (tmp->content == tmp2->content)
@@ -53,11 +53,5 @@ void	ft_check_dubles(t_list **stack, int ac)
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
-		if (tmp->next == NULL)
-			tmp2 = tmp;
-		else
-			tmp2 = tmp->next;
-		if (tmp2->next == NULL)
-			return ;
 	}
 }

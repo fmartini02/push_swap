@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
+/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/23 16:27:52 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:41:25 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ int		ft_smaller_dist(t_list **b, int n_c);
 int		ft_dist_from_top(t_list **b, int num);
 int		ft_find_half(t_list *b, int i);
 void	ft_free_stack(t_list **a, t_list **b);
+void	ft_sorty(t_list **a, t_list **b);
+void	ft_sort_4(t_list **a, t_list **b);
 
 #endif

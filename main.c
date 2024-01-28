@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
+/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/23 16:26:59 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:42:08 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,27 @@ void	ft_build_stack(t_list **stack, char **arg, int ac)
 void	ft_sort_5(t_list **a, t_list **b)
 {
 	t_list	*tmp;
-	int		s;
+	t_list	*tmp2;
+	int		buff;
 
 	tmp = *a;
-	while (ft_chunk_status(a, 0) == 1)
+	buff = 0;
+	while (tmp)
 	{
-		if (tmp->chunk == 0)
+		if (tmp->pos == 1 || tmp->pos == 2)
+		{
 			ft_push("pb", b, a);
+			buff++;
+		}
 		else
 			ft_rotate("ra", a, b);
+		if (buff == 2)
+		{
+			ft_sorty(a, b);
+			return ;
+		}
 		tmp = *a;
 	}
-	ft_sort_5_utils(a, b);
 }
 
 void	ft_sort_small(t_list **a, t_list **b)
@@ -60,6 +69,8 @@ void	ft_sort_small(t_list **a, t_list **b)
 	}
 	else if (i == 3)
 		ft_sort_3(a, b);
+	else if (i == 4)
+		ft_sort_4(a, b);
 	else if (i <= 5)
 		ft_sort_5(a, b);
 }

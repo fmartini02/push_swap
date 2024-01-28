@@ -26,7 +26,7 @@ void	ft_swapx(t_list **stack)
 
 void	ft_swap(char *s, t_list **stack_a, t_list **stack_b)
 {
-	if(stack_a == NULL || stack_b == NULL)
+	if (stack_a == NULL || stack_b == NULL)
 		ft_ferror();
 	if (s[0] == 's' && s[1] == 'a')
 		ft_swapx(stack_a);

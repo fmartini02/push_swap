@@ -12,7 +12,7 @@
 
 NAME = push_swap
 
-CC = gcc -g
+CC = cc -g
 
 SRC = 		\
 main.c \
