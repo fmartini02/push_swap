@@ -2,4 +2,4 @@ checker_linux
 push_swap
 push_swap_visualizer/
 .vscode/
-
+libft/libft.a

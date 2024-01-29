@@ -59,7 +59,7 @@ static char	*initialize_c(const char *s, char c, size_t *skip_c)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**split;
 	size_t	skip_c;
