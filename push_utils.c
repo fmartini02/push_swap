@@ -6,21 +6,23 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/28 16:59:46 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:53:33 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+void	ft_error(t_list **a, t_list **b)
 {
 	write(1, "Error\n", 7);
+	ft_free_stack(a, b);
 	exit(0);
 }
 
-void	ft_ferror(void)
+void	ft_ferror(t_list **a, t_list **b)
 {
 	write(1, "Error:\nwrong FUNCTION inputs\n", 29);
+	ft_free_stack(a, b);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/25 15:41:25 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:06:57 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,28 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 
-void	ft_check_digit(char **av, int flag);
-void	ft_check_dubles(t_list **stack, int ac);
+void	ft_check_digit(char **av, int flag, t_list **a, t_list **b);
+void	ft_check_dubles(t_list **a, t_list **b, int ac);
 int		ft_find_greater_in_chunk(t_list **stack, int n_c);
 int		ft_find_smaller_in_chunk(t_list **stack, int n_c);
-void	ft_splitfication(char *s, t_list **stack_a, int ac);
+void	ft_splitfication(char *s, t_list **stack_a, t_list **b, int ac);
 void	ft_set_position(t_list **stack);
 void	ft_set_chunk_value(t_list **a, int c_size);
 void	ft_chunking(t_list **a, t_list **b);
 int		ft_set_chunk_number(int size);
 int		ft_chunk_status(t_list **b, int n_c);
 int		ft_find_chunk(t_list **a, int chunk);
-void	ft_error(void);
-void	ft_ferror(void);
+void	ft_error(t_list **stack_a, t_list **stack_b);
+void	ft_ferror(t_list **stack_a, t_list **stack_b);
 void	ft_print_list(t_list *stack_a);
 void	ft_lstremove_front(t_list **lst);
 void	ft_rotate(char *str, t_list **stack_a, t_list **stack_b);
-void	ft_swapx(t_list **stack);
+void	ft_swapx(t_list **stack, t_list **a, t_list **b);
 void	ft_swap(char *s, t_list **stack_a, t_list **stack_b);
 void	ft_push(char *str, t_list **stack_reciver, t_list **stack_giver);
 int		ft_check_order_a(t_list **stack_a);
 void	ft_sort_3(t_list **a, t_list **b);
 void	ft_sort_5(t_list **a, t_list **b);
-void	ft_sort_5_utils(t_list **a, t_list **b);
 void	ft_sort_small(t_list **a, t_list **b);
 void	ft_sorting(t_list **stack_a, t_list **stack_b);
 void	ft_sort_logic_a(t_list **a, t_list **b, int n_c);

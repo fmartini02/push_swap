@@ -6,7 +6,7 @@
 /*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/28 16:44:27 by fmartini         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:06:23 by fmartini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,29 @@ void	ft_sort_small(t_list **a, t_list **b)
 
 int	main(int ac, char **av)
 {
-	t_list	*stack_b;
-	t_list	*stack_a;
+	t_list	*b;
+	t_list	*a;
 	int		size;
 
-	stack_b = NULL;
-	stack_a = NULL;
+	b = NULL;
+	a = NULL;
 	size = 0;
 	if (ac > 2)
 	{
-		ft_check_digit(av, 1);
-		ft_build_stack(&stack_a, av, ac);
-		ft_check_dubles(&stack_a, ac);
+		ft_check_digit(av, 1, &a, &b);
+		ft_build_stack(&a, av, ac);
+		ft_check_dubles(&a, &b, ac);
 	}
 	else if (ac == 2)
 	{
-		ft_splitfication(av[1], &stack_a, ac);
+		ft_splitfication(av[1], &a, &b, ac);
 	}
 	else
 		return (0);
-	ft_set_position(&stack_a);
-	ft_chunking(&stack_a, &stack_b);
-	if (ft_lstsize(stack_a) <= 5)
-		ft_sort_small(&stack_a, &stack_b);
-	ft_sorting(&stack_a, &stack_b);
-	ft_free_stack(&stack_a, &stack_b);
+	ft_set_position(&a);
+	ft_chunking(&a, &b);
+	if (ft_lstsize(a) <= 5)
+		ft_sort_small(&a, &b);
+	ft_sorting(&a, &b);
+	ft_free_stack(&a, &b);
 }
