@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sorting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:48:27 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/23 16:06:23 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:00:37 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_sort_logic_b(t_list **b, t_list **a, int num)
 
 	tmp = *b;
 	d = ft_dist_from_top(b, num);
-	if (ft_find_half(tmp, d) == 1)
+	if (ft_which_half(tmp, d) == 1)
 	{
 		while (d > 0)
 		{
@@ -76,7 +76,7 @@ void	ft_sort_logic_b(t_list **b, t_list **a, int num)
 			d--;
 		}
 	}
-	else if (ft_find_half(tmp, d) == 2)
+	else if (ft_which_half(tmp, d) == 2)
 	{
 		d = ft_lstsize(*b) - d;
 		while (d > 0)
@@ -88,11 +88,11 @@ void	ft_sort_logic_b(t_list **b, t_list **a, int num)
 	ft_push("pa", a, b);
 }
 
-int	ft_buff_init(t_list **a, t_list **b, int n_c)
+int	ft_push2A_logic(t_list **a, t_list **b, int n_c)
 {
-	int	buff_a;
+	int	ra_count;
 
-	buff_a = 0;
+	ra_count = 0;
 	while (ft_chunk_status(b, n_c))
 	{
 		if (ft_cmp_moves(b, ft_find_greater_in_chunk(b, n_c),
@@ -103,8 +103,8 @@ int	ft_buff_init(t_list **a, t_list **b, int n_c)
 		{
 			ft_sort_logic_b(b, a, ft_find_smaller_in_chunk(b, n_c));
 			ft_rotate("ra", a, b);
-			buff_a += 1;
+			ra_count += 1;
 		}
 	}
-	return (buff_a);
+	return (ra_count);
 }

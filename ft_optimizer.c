@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_optimizer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <@marvin>                         +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 15:59:50 by fmartini          #+#    #+#             */
-/*   Updated: 2023/10/13 17:10:10 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:52:02 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int	ft_cmp_moves(t_list **b, int magg, int min)
 {
 	t_list	*tmp;
 	int		r;
-	int		dis_mag;
-	int		dis_min;
+	int		dist_num_mag;
+	int		dist_num_min;
 
 	r = 0;
 	tmp = *b;
-	dis_mag = ft_greater_dist(b, magg);
-	dis_min = ft_smaller_dist(b, min);
-	if (dis_mag < dis_min)
+	dist_num_mag = ft_greater_dist(b, magg);
+	dist_num_min = ft_smaller_dist(b, min);
+	if (dist_num_mag < dist_num_min)
 		r = 1;
 	return (r);
 }

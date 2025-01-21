@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 17:06:57 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:47:14 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	ft_sorting(t_list **stack_a, t_list **stack_b);
 void	ft_sort_logic_a(t_list **a, t_list **b, int n_c);
 void	ft_sort_b(t_list **a, t_list **b);
 void	ft_sort_logic_b(t_list **b, t_list **a, int num);
-int		ft_buff_init(t_list **a, t_list **b, int n_c);
+int		ft_push2A_logic(t_list **a, t_list **b, int n_c);
 int		ft_cmp_moves(t_list **b, int magg, int min);
 int		ft_greater_dist(t_list **b, int n_c);
 int		ft_smaller_dist(t_list **b, int n_c);
 int		ft_dist_from_top(t_list **b, int num);
-int		ft_find_half(t_list *b, int i);
+int		ft_which_half(t_list *b, int i);
 void	ft_free_stack(t_list **a, t_list **b);
 void	ft_sorty(t_list **a, t_list **b);
 void	ft_sort_4(t_list **a, t_list **b);

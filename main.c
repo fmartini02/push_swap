@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 17:06:23 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/21 15:05:20 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,7 @@ int	main(int ac, char **av)
 		ft_check_dubles(&a, &b, ac);
 	}
 	else if (ac == 2)
-	{
 		ft_splitfication(av[1], &a, &b, ac);
-	}
 	else
 		return (0);
 	ft_set_position(&a);
