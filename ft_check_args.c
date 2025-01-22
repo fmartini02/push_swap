@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_av.c                                      :+:      :+:    :+:   */
+/*   ft_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 16:56:44 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:11:17 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_digit(char **av, int flag, t_list **a, t_list **b)
+int	ft_check_digit(char **av, int flag, t_list **a, t_list **b)
 {
 	int	i;
 	int	j;
@@ -28,11 +28,12 @@ void	ft_check_digit(char **av, int flag, t_list **a, t_list **b)
 			if ((av[i][j]) >= '0' && (av[i][j]) <= '9')
 				j++;
 			else
-				ft_error(a, b);
+				return (1);
 		}
 		i++;
 		j = 0;
 	}
+	return (0);
 }
 
 void	ft_check_dubles(t_list **a, t_list **b, int ac)
