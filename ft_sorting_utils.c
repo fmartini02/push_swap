@@ -88,7 +88,7 @@ void	ft_sort_logic_b(t_list **b, t_list **a, int num)
 	ft_push("pa", a, b);
 }
 
-int	ft_push2A_logic(t_list **a, t_list **b, int n_c)
+int	ft_push2a_logic(t_list **a, t_list **b, int n_c)
 {
 	int	ra_count;
 

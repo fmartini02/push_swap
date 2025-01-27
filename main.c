@@ -63,7 +63,7 @@ void	ft_sort_small(t_list **a, t_list **b)
 	if (i == 1)
 		return ;
 	if (ft_check_order_a(a) == 1)
-			return ;
+		return ;
 	else if (i == 2)
 	{
 		if ((*a)->pos > (*a)->next->pos)

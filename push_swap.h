@@ -41,7 +41,7 @@ void	ft_sorting(t_list **stack_a, t_list **stack_b);
 void	ft_sort_logic_a(t_list **a, t_list **b, int n_c);
 void	ft_sort_b(t_list **a, t_list **b);
 void	ft_sort_logic_b(t_list **b, t_list **a, int num);
-int		ft_push2A_logic(t_list **a, t_list **b, int n_c);
+int		ft_push2a_logic(t_list **a, t_list **b, int n_c);
 int		ft_cmp_moves(t_list **b, int magg, int min);
 int		ft_greater_dist(t_list **b, int n_c);
 int		ft_smaller_dist(t_list **b, int n_c);

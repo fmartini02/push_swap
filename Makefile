@@ -6,7 +6,7 @@
 #    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2025/01/21 15:59:08 by francema         ###   ########.fr        #
+#    Updated: 2025/01/23 18:35:26 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ ft_sorting_utils.c \
 ft_chunking.c \
 ft_killer.c \
 ft_sort_5_utils.c \
-#ft_cases_a.c \#
 
 OBJ_S = $(SRC:.c=.o)
 
@@ -57,7 +56,8 @@ fclean: clean
 	@make -s -C ./libft fclean
 
 v:	$(NAME)
-	mv push_swap ./push_swap_visualizer/build/bin && cd ./push_swap_visualizer/build/bin && ./visualizer
+	git clone https://github.com/o-reo/push_swap_visualizer.git
+	cd push_swap_visualizer && mkdir build && cd build && cmake .. && make && ./bin/visualizer
 
 re: fclean all
 

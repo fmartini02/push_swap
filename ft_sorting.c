@@ -22,7 +22,7 @@ void	ft_sort_b(t_list **a, t_list **b)
 	rra_count = 0;
 	while (n_c >= 0)
 	{
-		rra_count = ft_push2A_logic(a, b, n_c);
+		rra_count = ft_push2a_logic(a, b, n_c);
 		while (rra_count-- > 0)
 			ft_rotate("rra", a, b);
 		rra_count = 0;

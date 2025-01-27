@@ -94,4 +94,3 @@ int	ft_chunk_status(t_list **b, int n_c)
 	}
 	return (r);
 }
-
