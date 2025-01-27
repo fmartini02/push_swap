@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/22 16:11:17 by francema         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:25:23 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,18 @@ int	ft_check_digit(char **av, int flag, t_list **a, t_list **b)
 	return (0);
 }
 
-void	ft_check_dubles(t_list **a, t_list **b, int ac)
+void	check_limits(char **av, int flag, t_list **a, t_list **b)
+{
+	int	i;
+	int	n;
+
+	i = flag;
+	n = 0;
+	while (av[i])
+		n = ft_atoi(av[i++]);
+}
+
+void	ft_check_dubles(t_list **a, t_list **b, int ac, char **t)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -50,7 +61,11 @@ void	ft_check_dubles(t_list **a, t_list **b, int ac)
 		while (tmp2)
 		{
 			if (tmp->content == tmp2->content)
+			{
+				if (t)
+					free_tmp(t);
 				ft_error(a, b);
+			}
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;

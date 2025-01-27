@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fmartini <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 15:56:17 by fmartini          #+#    #+#              #
-#    Updated: 2023/09/04 18:17:57 by fmartini         ###   ########.fr        #
+#    Updated: 2025/01/27 18:37:42 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ SRC := \
         ft_isalpha.c ft_memmove.c ft_strdup.c ft_strnstr.c \
         ft_isascii.c ft_memset.c ft_striteri.c ft_strrchr.c \
         ft_isdigit.c ft_putchar_fd.c ft_strjoin.c ft_strtrim.c \
-        get_next_line.c get_next_line_utils.c\
+        get_next_line.c get_next_line_utils.c ft_atoi_long.c \
         ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
         ft_lstlast.c ft_lstadd_back.c \
 		ft_strjoin_free.c ft_adv_fun.c \
         ft_base_fun.c ft_printf.c ft_put_hexa.c ft_strcpy.c \
-        ft_strcmp.c ft_strstr.c  
-        
+        ft_strcmp.c ft_strstr.c
+
 
 OBJ_S = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/22 16:16:33 by francema         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:24:08 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # include "libft/libft.h"
 
 int		ft_check_digit(char **av, int flag, t_list **a, t_list **b);
-void	ft_check_dubles(t_list **a, t_list **b, int ac);
+void	ft_check_dubles(t_list **a, t_list **b, int ac, char **t);
+void	check_limits(char **av, int flag, t_list **a, t_list **b);
 int		ft_find_greater_in_chunk(t_list **stack, int n_c);
 int		ft_find_smaller_in_chunk(t_list **stack, int n_c);
 void	ft_splitfication(char *s, t_list **stack_a, t_list **b, int ac);
@@ -48,6 +49,7 @@ int		ft_smaller_dist(t_list **b, int n_c);
 int		ft_dist_from_top(t_list **b, int num);
 int		ft_which_half(t_list *b, int i);
 void	ft_free_stack(t_list **a, t_list **b);
+void	free_tmp(char **tmp);
 void	ft_sorty(t_list **a, t_list **b);
 void	ft_sort_4(t_list **a, t_list **b);
 

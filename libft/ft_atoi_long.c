@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 23:15:57 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/27 16:59:20 by francema         ###   ########.fr       */
+/*   Created: 2025/01/27 17:02:40 by francema          #+#    #+#             */
+/*   Updated: 2025/01/27 19:27:13 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-int	ft_atoi(char *str)
+long int	ft_atoi_long(char *s)
 {
-	int	sign;
-	int	nmb;
+	long int	sign;
+	long int	nmb;
 
 	sign = 1;
 	nmb = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+	while (*s == 32 || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		if (*str == '-')
+		if (*s == '-')
 			sign = -1;
-		str++;
+		s++;
 	}
-	while (*str && (*str >= '0' && *str <= '9'))
+	while (*s && (*s >= '0' && *s <= '9'))
 	{
-		if ((nmb > INT_MAX / 10) || (nmb == INT_MAX / 10
-				&& (*str - '0') > INT_MAX % 10))
-		{
-			ft_printf("Error overflow\n");
-			exit(1);
-		}
-		nmb = nmb * 10 + (*str++ - '0');
+		nmb = nmb * 10 + (*s++ - '0');
 	}
 	return (nmb * sign);
 }

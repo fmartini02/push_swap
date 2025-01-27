@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:59:35 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/22 16:16:52 by francema         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:22:20 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,31 @@ void	free_tmp(char **tmp)
 	free(tmp);
 }
 
-void	ft_splitfication(char *s, t_list **a, t_list **b, int ac)
+void	check_and_add_int(char **tmp, t_list **a, t_list **b)
 {
-	t_list	*t;
-	int		i;
-	char	**tmp;
+	long int	n;
+	t_list		*t;
+	int			i;
 
 	i = 0;
+	while (tmp[i])
+	{
+		n = ft_atoi_long(tmp[i]);
+		if (n > 2147483647 || n < -2147483648)
+		{
+			free_tmp(tmp);
+			ft_error(a, b);
+		}
+		t = ft_lstnew(n);
+		ft_lstadd_back(a, t);
+		i++;
+	}
+}
+
+void	ft_splitfication(char *s, t_list **a, t_list **b, int ac)
+{
+	char		**tmp;
+
 	if (ft_strlen(s) == 0)
 		exit(0);
 	tmp = ft_split(s, ' ');
@@ -40,12 +58,7 @@ void	ft_splitfication(char *s, t_list **a, t_list **b, int ac)
 		free_tmp(tmp);
 		ft_error(a, b);
 	}
-	while (tmp[i])
-	{
-		t = ft_lstnew(ft_atoi(tmp[i++]));
-		ft_lstadd_back(a, t);
-	}
-	ft_check_dubles(a, b, ac);
-	i = 0;
+	check_and_add_int(tmp, a, b);
+	ft_check_dubles(a, b, ac, tmp);
 	free_tmp(tmp);
 }
