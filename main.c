@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/22 16:11:52 by francema         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:39:41 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	ft_build_stack(t_list **stack, char **arg, int ac)
 void	ft_sort_5(t_list **a, t_list **b)
 {
 	t_list	*tmp;
-	t_list	*tmp2;
 	int		buff;
 
 	tmp = *a;

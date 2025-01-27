@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_5_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:38:34 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/28 16:34:19 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:22:16 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	ft_sort_4(t_list **a, t_list **b)
 
 void	ft_sort_3(t_list **a, t_list **b)
 {
+	if (ft_check_order_a(a) == 1)
+		return ;
 	if ((*a)->pos > (*a)->next->pos
 		&& (*a)->next->pos > (*a)->next->next->pos)
 	{

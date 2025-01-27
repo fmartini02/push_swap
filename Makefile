@@ -6,7 +6,7 @@
 #    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2025/01/23 18:35:26 by francema         ###   ########.fr        #
+#    Updated: 2025/01/27 14:38:53 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ LIBFT = libft/libft.a
 
 CFLAG = -Wall -Wextra -Werror -g
 
+VISUAL = push_swap_visualizer/build/bin/visualizer
+
 all: $(NAME)
 
 $(NAME): $(OBJ_S) $(LIBFT)
@@ -43,6 +45,10 @@ $(NAME): $(OBJ_S) $(LIBFT)
 
 $(LIBFT):
 	@make -s -C ./libft
+
+$(VISUAL): $(NAME)
+	git clone https://github.com/o-reo/push_swap_visualizer.git
+	cd push_swap_visualizer && mkdir build && cd build && cmake .. && make
 
 .o: %.c
 	@ $(CC) -c $(CFLAG) -I. $< -o $@
@@ -54,10 +60,10 @@ clean:
 fclean: clean
 	@ /bin/rm -f $(NAME)
 	@make -s -C ./libft fclean
+	@ /bin/rm -rf push_swap_visualizer
 
-v:	$(NAME)
-	git clone https://github.com/o-reo/push_swap_visualizer.git
-	cd push_swap_visualizer && mkdir build && cd build && cmake .. && make && ./bin/visualizer
+v:	$(NAME) $(VISUAL)
+	./push_swap_visualizer/build/bin/visualizer
 
 re: fclean all
 
