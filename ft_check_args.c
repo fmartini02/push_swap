@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/02/05 16:40:29 by francema         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:49:14 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ int	ft_check_digit_utils(char **av, int i, int j)
 {
 	while (av[i][j])
 	{
-		if (j == 0 && av[i][j] == '-' || av[i][j] == '+')
+		if (av[i][j] == '-' || av[i][j] == '+')
+		{
+			if (j != 0)
+				return (1);
 			j++;
+		}
 		else if ((av[i][j]) >= '0' && (av[i][j]) <= '9')
 			j++;
 		else
