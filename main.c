@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/27 19:24:41 by francema         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:31:44 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 	size = 0;
 	if (ac > 2)
 	{
-		if (ft_check_digit(av, 1, &a, &b))
+		if (ft_check_digit(av, 1))
 			ft_error(&a, &b);
 		check_limits(av, 1, &a, &b);
 		ft_build_stack(&a, av, ac);

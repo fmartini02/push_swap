@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/27 19:24:08 by francema         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:31:36 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include "libft/libft.h"
 
-int		ft_check_digit(char **av, int flag, t_list **a, t_list **b);
+int		ft_check_digit(char **av, int flag);
 void	ft_check_dubles(t_list **a, t_list **b, int ac, char **t);
 void	check_limits(char **av, int flag, t_list **a, t_list **b);
 int		ft_find_greater_in_chunk(t_list **stack, int n_c);
