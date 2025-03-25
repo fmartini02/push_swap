@@ -6,28 +6,11 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/02/05 16:31:44 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:07:40 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_build_stack(t_list **stack, char **arg, int ac)
-{
-	int		i;
-	int		j;
-	t_list	*tmp;
-
-	i = 1;
-	j = 0;
-	tmp = ft_lstnew(ft_atoi(arg[i++]));
-	ft_lstadd_back(stack, tmp);
-	while (i < ac)
-	{
-		tmp = ft_lstnew(ft_atoi(arg[i++]));
-		ft_lstadd_back(stack, tmp);
-	}
-}
 
 void	ft_sort_5(t_list **a, t_list **b)
 {
@@ -90,11 +73,11 @@ int	main(int ac, char **av)
 		if (ft_check_digit(av, 1))
 			ft_error(&a, &b);
 		check_limits(av, 1, &a, &b);
-		ft_build_stack(&a, av, ac);
+		ft_build_stack(&a, av, ac, 0);
 		ft_check_dubles(&a, &b, ac, NULL);
 	}
 	else if (ac == 2)
-		ft_splitfication(av[1], &a, &b, ac);
+		ft_splitfication(av[1], &a, &b, ac, 0);
 	else
 		return (0);
 	ft_set_position(&a);

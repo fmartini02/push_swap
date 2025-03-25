@@ -6,7 +6,7 @@
 #    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 15:56:17 by fmartini          #+#    #+#              #
-#    Updated: 2025/01/27 18:37:42 by francema         ###   ########.fr        #
+#    Updated: 2025/03/25 16:46:25 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC := \
         ft_lstlast.c ft_lstadd_back.c \
 		ft_strjoin_free.c ft_adv_fun.c \
         ft_base_fun.c ft_printf.c ft_put_hexa.c ft_strcpy.c \
-        ft_strcmp.c ft_strstr.c
+        ft_strcmp.c ft_strstr.c ft_num_len.c
 
 
 OBJ_S = $(SRC:.c=.o)

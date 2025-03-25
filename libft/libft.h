@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:52:29 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/27 18:55:26 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:46:42 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,18 @@ int			ft_put_point(unsigned long schiff, const char str, int *n);
 int			ft_printf(const char *str, ...);
 char		*ft_strcpy(char *dest, char *src);
 char		*ft_strstr(char	*haystack, char	*needle);
+int			ft_num_len(long int n, int base);
 
 typedef struct s_list
 {
 	int				content;
 	int				pos;
 	int				chunk;
+	int				flag;
 	struct s_list	*next;
 }			t_list;
 
-t_list		*ft_lstnew(int content);
+t_list		*ft_lstnew(int content, int flag);
 int			ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);

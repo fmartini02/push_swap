@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:18 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 17:02:06 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:13:14 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	ft_push(char *str, t_list **stack_reciver, t_list **stack_giver)
 		ft_px(stack_reciver, stack_giver);
 	else
 		ft_ferror(stack_giver, stack_reciver);
-	ft_printf("%s\n", str);
+	if ((*stack_reciver)->flag == 0)
+		ft_printf("%s\n", str);
 }

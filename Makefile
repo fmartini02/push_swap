@@ -6,31 +6,29 @@
 #    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2025/01/27 14:38:53 by francema         ###   ########.fr        #
+#    Updated: 2025/03/25 13:42:51 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
+BONUS = checker
+
 CC = cc -g
 
-SRC = 		\
-main.c \
-ft_sorting.c \
-push_utils.c \
-ft_push.c \
-ft_swap.c \
-ft_rotate.c \
-ft_check_args.c \
-ft_splitfication.c \
-ft_optimizer.c \
-ft_optimizer_utils.c \
-ft_sorting_utils.c \
-ft_chunking.c \
-ft_killer.c \
-ft_sort_5_utils.c \
+SRC = main.c ft_sorting.c push_utils.c ft_push.c \
+ft_swap.c ft_rotate.c ft_check_args.c ft_splitfication.c \
+ft_optimizer.c ft_optimizer_utils.c ft_sorting_utils.c \
+ft_chunking.c ft_killer.c ft_sort_5_utils.c build_stack.c \
 
 OBJ_S = $(SRC:.c=.o)
+
+BONUS_SRC = checker.c checker_utils.c ft_splitfication.c \
+ft_check_args.c ft_push.c ft_swap.c ft_rotate.c \
+push_utils.c build_stack.c ft_killer.c ft_sorting_utils.c \
+ft_optimizer.c ft_optimizer_utils.c
+
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 LIBFT = libft/libft.a
 
@@ -53,6 +51,9 @@ $(VISUAL): $(NAME)
 .o: %.c
 	@ $(CC) -c $(CFLAG) -I. $< -o $@
 
+bonus: $(BONUS_OBJ) $(LIBFT)
+	@$(CC) $(CFLAG) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
+
 clean:
 	@ /bin/rm -f *.o
 	@make -s -C ./libft clean
@@ -64,6 +65,8 @@ fclean: clean
 
 v:	$(NAME) $(VISUAL)
 	./push_swap_visualizer/build/bin/visualizer
+
+re_bonus: fclean bonus
 
 re: fclean all
 

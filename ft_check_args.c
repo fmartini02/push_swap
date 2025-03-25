@@ -6,27 +6,43 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/02/05 16:49:14 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:48:03 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_check_order_a(t_list **stack)
+{
+	t_list	*tmp;
+
+	tmp = *stack;
+	while (tmp->next != NULL)
+	{
+		if ((tmp->next->pos - tmp->pos == 1) && tmp->next)
+			tmp = tmp->next;
+		else if ((tmp->next->pos - tmp->pos != 1) && tmp->next)
+			return (0);
+	}
+	return (1);
+}
+
 int	ft_check_digit_utils(char **av, int i, int j)
 {
-	while (av[i][j])
-	{
-		if (av[i][j] == '-' || av[i][j] == '+')
-		{
-			if (j != 0)
-				return (1);
-			j++;
-		}
-		else if ((av[i][j]) >= '0' && (av[i][j]) <= '9')
-			j++;
-		else
-			return (1);
-	}
+	int	n;
+
+	n = 0;
+	while (av[i][j] && av[i][j] == ' ' )
+		j++;
+	if (av[i][j] && (av[i][j] == '-' || av[i][j] == '+'))
+		j++;
+	if (av[i][j] && ft_isdigit(av[i][j]))
+		n = ft_atoi(&av[i][j]);
+	j += ft_num_len(n, 10);
+	while (av[i][j] && av[i][j] == ' ')
+		j++;
+	if (av[i][j])
+		return (1);
 	return (0);
 }
 

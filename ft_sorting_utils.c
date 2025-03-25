@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:48:27 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/21 16:00:37 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/24 19:24:23 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,6 @@ void	ft_set_position(t_list **stack)
 		current->pos++;
 		current = current->next;
 	}
-}
-
-int	ft_check_order_a(t_list **stack)
-{
-	t_list	*tmp;
-
-	tmp = *stack;
-	while (tmp->next != NULL)
-	{
-		if ((tmp->next->pos - tmp->pos == 1) && tmp->next)
-			tmp = tmp->next;
-		else if ((tmp->next->pos - tmp->pos != 1) && tmp->next)
-			return (0);
-	}
-	return (1);
 }
 
 void	ft_sort_logic_a(t_list **a, t_list **b, int n_c)

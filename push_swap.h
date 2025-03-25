@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2025/02/05 16:31:36 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:04:07 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 int		ft_check_digit(char **av, int flag);
 void	ft_check_dubles(t_list **a, t_list **b, int ac, char **t);
 void	check_limits(char **av, int flag, t_list **a, t_list **b);
+void	ft_build_stack(t_list **stack, char **arg, int ac, int flag);
 int		ft_find_greater_in_chunk(t_list **stack, int n_c);
 int		ft_find_smaller_in_chunk(t_list **stack, int n_c);
-void	ft_splitfication(char *s, t_list **stack_a, t_list **b, int ac);
+void	ft_splitfication(char *s, t_list **stack_a, t_list **b, int ac, int flag);
 void	ft_set_position(t_list **stack);
 void	ft_set_chunk_value(t_list **a, int c_size);
 void	ft_chunking(t_list **a, t_list **b);
@@ -52,5 +53,8 @@ void	ft_free_stack(t_list **a, t_list **b);
 void	free_tmp(char **tmp);
 void	ft_sorty(t_list **a, t_list **b);
 void	ft_sort_4(t_list **a, t_list **b);
+void	rotate(char *op, t_list **a, t_list **b);
+void	push(char *op, t_list **a, t_list **b);
+void	swap(char *op, t_list **a, t_list **b);
 
 #endif

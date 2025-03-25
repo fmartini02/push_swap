@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:49:30 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 17:01:12 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:08:49 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void	ft_rotate(char *str, t_list **a, t_list **b)
 		ft_rr(a, b);
 	else
 		ft_ferror(a, b);
-	ft_printf("%s\n", str);
+	if ((*a)->flag == 0)
+		ft_printf("%s\n", str);
 }

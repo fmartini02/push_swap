@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 23:15:57 by fmartini          #+#    #+#             */
-/*   Updated: 2025/01/27 16:59:20 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:14:48 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(char *str)
 		if ((nmb > INT_MAX / 10) || (nmb == INT_MAX / 10
 				&& (*str - '0') > INT_MAX % 10))
 		{
-			ft_printf("Error overflow\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		nmb = nmb * 10 + (*str++ - '0');

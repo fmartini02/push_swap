@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 00:06:45 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 17:55:32 by francema         ###   ########.fr       */
+/*   Created: 2025/03/20 18:22:14 by francema          #+#    #+#             */
+/*   Updated: 2025/03/24 18:23:03 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	ft_build_stack(t_list **stack, char **arg, int ac, int flag)
 {
-	size_t	lens1;
-	size_t	lens2;
-	char	*res;
+	int		i;
+	int		j;
+	t_list	*tmp;
 
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	res = malloc(sizeof(char) * (lens1 + lens2) + 1);
-	if (!res)
-		return (NULL);
-	ft_memcpy(res, s1, lens1);
-	ft_memcpy(&res[lens1], s2, lens2);
-	res[lens1 + lens2] = '\0';
-	return (res);
+	i = 1;
+	j = 0;
+	tmp = ft_lstnew(ft_atoi(arg[i++]), flag);
+	if (!tmp)
+		ft_error(stack, stack);
+	ft_lstadd_back(stack, tmp);
+	while (i < ac)
+	{
+		tmp = ft_lstnew(ft_atoi(arg[i++]), flag);
+		if (!tmp)
+			ft_error(stack, stack);
+		ft_lstadd_back(stack, tmp);
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:01 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 17:00:06 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:08:04 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	ft_swap(char *s, t_list **a, t_list **b)
 	}
 	else
 		ft_ferror(a, b);
-	ft_printf("%s\n", s);
+	if ((*a)->flag == 0)
+		ft_printf("%s\n", s);
 }

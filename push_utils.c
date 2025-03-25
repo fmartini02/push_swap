@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2024/01/31 16:53:33 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:22:58 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	ft_error(t_list **a, t_list **b)
 {
-	write(1, "Error\n", 7);
+	if (!*a && !*b)
+	{
+		write(2, "Error\n", 7);
+		exit(0);
+	}
+	if ((*a)->flag == 1)
+		(write(2, "Error\n", 7));
+	else
+		write(2, "Error\n", 7);
 	ft_free_stack(a, b);
 	exit(0);
 }

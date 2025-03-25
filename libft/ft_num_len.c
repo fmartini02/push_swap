@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_num_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 00:06:45 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 17:55:32 by francema         ###   ########.fr       */
+/*   Created: 2024/11/27 15:35:58 by francema          #+#    #+#             */
+/*   Updated: 2025/03/06 15:20:04 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+int	ft_num_len(long int n, int base)
 {
-	size_t	lens1;
-	size_t	lens2;
-	char	*res;
+	int	len;
 
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	res = malloc(sizeof(char) * (lens1 + lens2) + 1);
-	if (!res)
-		return (NULL);
-	ft_memcpy(res, s1, lens1);
-	ft_memcpy(&res[lens1], s2, lens2);
-	res[lens1 + lens2] = '\0';
-	return (res);
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n *= -1;
+	while (n > 0)
+	{
+		n /= base;
+		len++;
+	}
+	return (len);
 }
