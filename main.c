@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:57:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 18:07:40 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:41:12 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 		ft_check_dubles(&a, &b, ac, NULL);
 	}
 	else if (ac == 2)
-		ft_splitfication(av[1], &a, &b, ac, 0);
+		ft_splitfication(av[1], &a, &b, 0);
 	else
 		return (0);
 	ft_set_position(&a);
