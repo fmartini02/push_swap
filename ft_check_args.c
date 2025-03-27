@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 16:48:03 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/27 15:49:42 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	ft_check_digit_utils(char **av, int i, int j)
 		j++;
 	if (av[i][j] && ft_isdigit(av[i][j]))
 		n = ft_atoi(&av[i][j]);
-	j += ft_num_len(n, 10);
+	while (av[i][j] && av[i][j] == '0')
+		j++;
+	if (n != 0)
+		j += ft_num_len(n, 10);
 	while (av[i][j] && av[i][j] == ' ')
 		j++;
 	if (av[i][j])

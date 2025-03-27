@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 00:06:45 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 17:55:32 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:05:28 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_memcpy(res, s1, lens1);
 	ft_memcpy(&res[lens1], s2, lens2);
 	res[lens1 + lens2] = '\0';
+	free(s1);
 	return (res);
 }
