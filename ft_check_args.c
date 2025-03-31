@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/27 16:38:52 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 14:16:31 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	ft_check_digit(char **av, int flag)
 	n_sign = 0;
 	while (av[i])
 	{
+		if (!av[i][0])
+			return (1);
 		if (ft_check_digit_utils(av, i, j))
 			return (1);
 		i++;
@@ -68,7 +70,7 @@ int	ft_check_digit(char **av, int flag)
 	return (0);
 }
 
-void	check_limits(char **av, int flag, t_list **a, t_list **b)
+void	check_limits(char **av, int flag)
 {
 	int	i;
 	int	n;

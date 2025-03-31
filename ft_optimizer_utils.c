@@ -18,6 +18,7 @@ int	ft_which_half(t_list *b, int i)
 	int	r;
 
 	j = i;
+	r = 0;
 	if (j < ft_lstsize(b) / 2)
 		r = 1;
 	else if (j >= ft_lstsize(b) / 2)

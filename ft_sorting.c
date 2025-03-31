@@ -15,7 +15,6 @@
 void	ft_sort_b(t_list **a, t_list **b)
 {
 	int	n_c;
-	int	d;
 	int	rra_count;
 
 	n_c = ft_set_chunk_number(ft_lstsize(*b)) - 1;

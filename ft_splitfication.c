@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:59:35 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/27 16:40:47 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:59:27 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	ft_splitfication(char *s, t_list **a, t_list **b, int flag)
 	char	**tmp;
 
 	if (ft_strlen(s) == 0)
+	{
+		write(2, "error\n", 6);
 		exit(0);
+	}
 	tmp = ft_split(s, ' ');
 	if (!*tmp)
 	{
@@ -65,6 +68,6 @@ void	ft_splitfication(char *s, t_list **a, t_list **b, int flag)
 		ft_error(a, b);
 	}
 	check_and_add_int(tmp, a, b, flag);
-	ft_check_dubles(a, b, ac, tmp);
+	ft_check_dubles(a, b, tmp);
 	free_tmp(tmp);
 }

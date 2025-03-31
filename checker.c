@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:52:43 by francema          #+#    #+#             */
-/*   Updated: 2025/03/27 16:20:58 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 12:29:10 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ void	main_utils(t_list **a, t_list **b, int ac, char **av)
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-		check_limits(av, 1, a, b);
+		check_limits(av, 1);
 		ft_build_stack(a, av, ac, 1);
-		ft_check_dubles(a, b, ac, NULL);
+		ft_check_dubles(a, b, NULL);
 	}
 	else if (ac == 2)
-		ft_splitfication(av[1], a, b, ac, 1);
+		ft_splitfication(av[1], a, b, 1);
 	else
 	{
 		write(2, "Error\n", 6);

@@ -39,29 +39,29 @@ VISUAL = push_swap_visualizer/build/bin/visualizer
 all: $(NAME)
 
 $(NAME): $(OBJ_S) $(LIBFT)
-	@$(CC) $(CFLAG) $(OBJ_S) $(LIBFT) -o $@
+	$(CC) $(CFLAG) $(OBJ_S) $(LIBFT) -o $@
 
 $(LIBFT):
-	@make -s -C ./libft
+	make -s -C ./libft
 
 $(VISUAL): $(NAME)
 	git clone https://github.com/o-reo/push_swap_visualizer.git
 	cd push_swap_visualizer && mkdir build && cd build && cmake .. && make
 
-.o: %.c
-	@ $(CC) -c $(CFLAG) -I. $< -o $@
+%.o: %.c
+	$(CC) -c $(CFLAG) -I. $< -o $@
 
 bonus: $(BONUS_OBJ) $(LIBFT)
-	@$(CC) $(CFLAG) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
+	$(CC) $(CFLAG) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
 
 clean:
-	@ /bin/rm -f *.o
-	@make -s -C ./libft clean
+	/bin/rm -f *.o
+	make -s -C ./libft clean
 
 fclean: clean
-	@ /bin/rm -f $(NAME)
-	@make -s -C ./libft fclean
-	@ /bin/rm -rf push_swap_visualizer
+	/bin/rm -f $(NAME)
+	make -s -C ./libft fclean
+	/bin/rm -rf push_swap_visualizer
 
 v:	$(NAME) $(VISUAL)
 	./push_swap_visualizer/build/bin/visualizer

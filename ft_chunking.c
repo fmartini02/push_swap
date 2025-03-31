@@ -66,7 +66,7 @@ int	ft_find_chunk(t_list **a, int chunk)
 	return (i);
 }
 
-void	ft_chunking(t_list **a, t_list **b)
+void	ft_chunking(t_list **a)
 {
 	t_list	*tmp;
 	int		c_size;

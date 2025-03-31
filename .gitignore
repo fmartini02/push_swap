@@ -1,6 +1,8 @@
 checker_linux
 push_swap
+checker
 push_swap_visualizer/
 .vscode/
 libft/libft.a
+*.o
 imgui.ini

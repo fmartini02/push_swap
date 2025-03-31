@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/27 16:40:17 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 12:27:39 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 # include "libft/libft.h"
 
 int		ft_check_digit(char **av, int flag);
-void	ft_check_dubles(t_list **a, t_list **b, int ac, char **t);
-void	check_limits(char **av, int flag, t_list **a, t_list **b);
+void	ft_check_dubles(t_list **a, t_list **b, char **t);
+void	check_limits(char **av, int flag);
 void	ft_build_stack(t_list **stack, char **arg, int ac, int flag);
 int		ft_find_greater_in_chunk(t_list **stack, int n_c);
 int		ft_find_smaller_in_chunk(t_list **stack, int n_c);
 void	ft_splitfication(char *s, t_list **stack_a, t_list **b, int flag);
 void	ft_set_position(t_list **stack);
 void	ft_set_chunk_value(t_list **a, int c_size);
-void	ft_chunking(t_list **a, t_list **b);
+void	ft_chunking(t_list **a);
 int		ft_set_chunk_number(int size);
 int		ft_chunk_status(t_list **b, int n_c);
 int		ft_find_chunk(t_list **a, int chunk);
