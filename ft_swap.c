@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:01 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 12:08:04 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 15:29:35 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void	ft_swap(char *s, t_list **a, t_list **b)
 	}
 	else
 		ft_ferror(a, b);
-	if ((*a)->flag == 0)
-		ft_printf("%s\n", s);
+	print_op(a, b, s);
 }

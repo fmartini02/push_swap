@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 15:22:58 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 15:28:35 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,20 @@ void	ft_lstremove_front(t_list **lst)
 		return ;
 	tmp = *lst;
 	*lst = (*lst)->next;
+}
+
+void	print_op(t_list **a, t_list **b, char *str)
+{
+	if (ft_strchr(str, 'a'))
+	{
+		if ((*a)->flag == 0)
+			ft_printf("%s\n", str);
+	}
+	else if (ft_strchr(str, 'b'))
+	{
+		if ((*b)->flag == 0)
+			ft_printf("%s\n", str);
+	}
+	else
+		ft_printf("%s\n", str);
 }
