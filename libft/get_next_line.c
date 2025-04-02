@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmartini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:59:20 by lcasu             #+#    #+#             */
-/*   Updated: 2023/06/19 15:05:52 by fmartini         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:10:10 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	*ft_get_excess(char *line)
 	if (tmp)
 	{
 		tmp++;
+		if (!*tmp)
+			return (NULL);
 		res = ft_strdup_gnl(tmp);
 	}
 	else

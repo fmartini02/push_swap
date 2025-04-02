@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 18:06:09 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 15:29:51 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 18:47:14 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	rotate(char *op, t_list **a, t_list **b);
 void	push(char *op, t_list **a, t_list **b);
 void	swap(char *op, t_list **a, t_list **b);
 void	print_op(t_list **a, t_list **b, char *str);
+char	*get_ops(t_list **a, t_list **b);
 
 #endif

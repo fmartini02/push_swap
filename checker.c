@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:52:43 by francema          #+#    #+#             */
-/*   Updated: 2025/03/31 12:29:10 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/02 14:42:31 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void	check_format(t_list **a, t_list **b, char **op_s)
 	{
 		while (ft_isalpha(op_s[i][j]))
 			j++;
-		if (!op_s[i][j] || op_s[i][j] != '\n')
+		if (op_s[i][j] && op_s[i][j] != '\n')
 			check_format_utils(a, b, op_s);
+		if (!op_s[i][j])
+			return ;
 		j = 0;
 		i++;
 	}
@@ -103,21 +105,15 @@ int	main(int ac, char **av)
 	t_list	*a;
 	t_list	*b;
 	char	*op;
-	char	*tmp;
 
 	b = NULL;
 	a = NULL;
 	main_utils(&a, &b, ac, av);
-	tmp = get_next_line(0);
-	op = ft_strdup("");
-	while (tmp)
-	{
-		op = ft_strjoin(op, tmp);
-		free(tmp);
-		tmp = get_next_line(0);
-	}
+	op = get_ops(&a, &b);
+	if (!op)
+		return (1);
 	ft_do_op(op, &a, &b);
-	if (ft_check_order_a(&a))
+	if (ft_check_order_a(&a) && !b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

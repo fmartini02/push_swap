@@ -6,3 +6,4 @@ push_swap_visualizer/
 libft/libft.a
 *.o
 imgui.ini
+.gitignore

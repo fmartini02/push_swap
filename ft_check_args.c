@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 14:16:31 by francema         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:54:24 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_check_order_a(t_list **stack)
 
 int	ft_check_digit_utils(char **av, int i, int j)
 {
-	int	n;
+	long int	n;
 
 	n = 0;
 	while (av[i][j] && av[i][j] == ' ' )
@@ -37,7 +37,11 @@ int	ft_check_digit_utils(char **av, int i, int j)
 	if (av[i][j] && (av[i][j] == '-' || av[i][j] == '+'))
 		j++;
 	if (av[i][j] && ft_isdigit(av[i][j]))
-		n = ft_atoi(&av[i][j]);
+	{
+		n = ft_atoi_long(&av[i][j]);
+		if (n > INT_MAX || n < INT_MIN)
+			return (1);
+	}
 	while (av[i][j] && av[i][j] == '0')
 		j++;
 	if (n != 0)
@@ -78,7 +82,11 @@ void	check_limits(char **av, int flag)
 	i = flag;
 	n = 0;
 	while (av[i])
-		n = ft_atoi(av[i++]);
+	{
+		n = ft_atoi_long(av[i++]);
+		if (n > INT_MAX || n < INT_MIN)
+			exit(1);
+	}
 }
 
 void	ft_check_dubles(t_list **a, t_list **b, char **t)
