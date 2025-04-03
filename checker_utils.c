@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:54:53 by francema          #+#    #+#             */
-/*   Updated: 2025/03/31 19:19:27 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:07:56 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	rotate(char *op, t_list **a, t_list **b)
 int	check_op(char *s)
 {
 	static char	*ops[] = {"sa\n", "sb\n", "ss\n", "ra\n", "rb\n",
-		"rr\n", "rra\n", "rrb\n", "rrr\n", "pb\n", "pa\n", NULL};
+		"rr\n", "rra\n", "rrb\n", "rrr\n", "pb\n", "pa\n", "\n", NULL};
 	int			i;
 
 	i = 0;

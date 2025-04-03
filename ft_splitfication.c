@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:59:35 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 13:59:27 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:20:47 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_splitfication(char *s, t_list **a, t_list **b, int flag)
 	if (!*tmp)
 	{
 		free_tmp(tmp);
+		write(2, "error\n", 6);
 		ft_free_stack(a, b);
 		exit(0);
 	}
