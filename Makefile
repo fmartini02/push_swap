@@ -41,6 +41,9 @@ all: $(NAME)
 $(NAME): $(OBJ_S) $(LIBFT)
 	$(CC) $(CFLAG) $(OBJ_S) $(LIBFT) -o $@
 
+$(BONUS): $(BONUS_OBJ) $(LIBFT)
+	$(CC) $(CFLAG) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
+
 $(LIBFT):
 	make -s -C ./libft
 
@@ -51,8 +54,7 @@ $(VISUAL): $(NAME)
 %.o: %.c
 	$(CC) -c $(CFLAG) -I. $< -o $@
 
-bonus: $(BONUS_OBJ) $(LIBFT)
-	$(CC) $(CFLAG) $(BONUS_OBJ) $(LIBFT) -o $(BONUS)
+bonus: $(BONUS)
 
 clean:
 	/bin/rm -f *.o
