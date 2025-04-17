@@ -6,7 +6,7 @@
 #    By: francema <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/01 17:41:17 by fmartini          #+#    #+#              #
-#    Updated: 2025/03/25 13:42:51 by francema         ###   ########.fr        #
+#    Updated: 2025/04/17 15:45:40 by francema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ_S = $(SRC:.c=.o)
 BONUS_SRC = checker.c checker_utils.c ft_splitfication.c \
 ft_check_args.c ft_push.c ft_swap.c ft_rotate.c \
 push_utils.c build_stack.c ft_killer.c ft_sorting_utils.c \
-ft_optimizer.c ft_optimizer_utils.c
+ft_optimizer.c ft_optimizer_utils.c checker_errors_handler.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 

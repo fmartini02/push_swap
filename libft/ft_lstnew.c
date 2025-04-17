@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:16:45 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/24 18:57:32 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:31:29 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_list	*ft_lstnew(int content, int flag)
 	memb->next = NULL;
 	memb->chunk = 0;
 	memb->pos = 0;
+	memb->error = 0;
 	memb->flag = flag;
 	return (memb);
 }

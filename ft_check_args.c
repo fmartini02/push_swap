@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:36:43 by fmartini          #+#    #+#             */
-/*   Updated: 2025/04/03 15:01:47 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:50:36 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ int	ft_check_order_a(t_list **stack)
 	t_list	*tmp;
 
 	tmp = *stack;
-	while (tmp->next != NULL)
+	while (tmp && tmp->next != NULL)
 	{
 		if ((tmp->next->pos - tmp->pos == 1) && tmp->next)
 			tmp = tmp->next;
 		else if ((tmp->next->pos - tmp->pos != 1) && tmp->next)
 			return (0);
 	}
+	if (!tmp)
+		return (0);
 	return (1);
 }
 

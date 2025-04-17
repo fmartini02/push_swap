@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:18 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/25 14:13:14 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:06:57 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_px(t_list **stack_reciver, t_list **stack_giver)
 {
 	t_list	*tmp;
 
-	if (*stack_giver == NULL)
-		ft_ferror(stack_giver, stack_reciver);
 	tmp = (*stack_giver)->next;
 	(*stack_giver)->next = *stack_reciver;
 	*stack_reciver = *stack_giver;
@@ -26,8 +24,11 @@ void	ft_px(t_list **stack_reciver, t_list **stack_giver)
 
 void	ft_push(char *str, t_list **stack_reciver, t_list **stack_giver)
 {
-	if (stack_giver == NULL)
+	if (*stack_giver == NULL)
+	{
 		ft_ferror(stack_giver, stack_reciver);
+		return ;
+	}
 	if (str[1] == 'a')
 		ft_px(stack_reciver, stack_giver);
 	else if (str[1] == 'b')

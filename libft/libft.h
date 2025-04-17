@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 18:52:29 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 19:06:25 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:27:04 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_list
 	int				content;
 	int				pos;
 	int				chunk;
+	int				error;
 	int				flag;
 	struct s_list	*next;
 }			t_list;

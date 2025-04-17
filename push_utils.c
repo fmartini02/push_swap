@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 15:28:35 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:25:01 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	ft_error(t_list **a, t_list **b)
 
 void	ft_ferror(t_list **a, t_list **b)
 {
-	write(1, "Error:\nwrong FUNCTION inputs\n", 29);
-	ft_free_stack(a, b);
-	exit(0);
+	write(1, "Error:\nOPERATION/S ON EMPTY STACK\n", 34);
+	//ft_free_stack(a, b);
+	if (*a)
+		(*a)->error = 1;
+	else if (*b)
+		(*b)->error =1;
 }
 
 void	ft_print_list(t_list *lst)
@@ -68,6 +71,6 @@ void	print_op(t_list **a, t_list **b, char *str)
 		if ((*b)->flag == 0)
 			ft_printf("%s\n", str);
 	}
-	else
+	else if (((*b) && (*b)->flag == 0) || ((*a) && (*a)->flag == 0))
 		ft_printf("%s\n", str);
 }

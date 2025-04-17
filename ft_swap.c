@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:51:01 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 15:29:35 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:12:07 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	ft_swapx(t_list **stack, t_list **a, t_list **b)
 	t_list	*tmp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
+	{
 		ft_ferror(a, b);
+		return ;
+	}
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = (*stack)->next;
@@ -26,8 +29,11 @@ void	ft_swapx(t_list **stack, t_list **a, t_list **b)
 
 void	ft_swap(char *s, t_list **a, t_list **b)
 {
-	if (a == NULL || b == NULL)
+	if (*a == NULL || *b == NULL)
+	{
 		ft_ferror(a, b);
+		return ;
+	}
 	if (s[0] == 's' && s[1] == 'a')
 		ft_swapx(a, a, b);
 	else if (s[0] == 's' && s[1] == 'b')

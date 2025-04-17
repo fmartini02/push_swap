@@ -6,47 +6,38 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:52:43 by francema          #+#    #+#             */
-/*   Updated: 2025/04/02 14:42:31 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:09:25 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_format_utils(t_list **a, t_list **b, char **op_s)
+int	ft_do_op_utils(t_list **a, t_list **b, char **op_s)
 {
 	int	i;
 
 	i = 0;
-	write(2, "Error\n", 6);
-	ft_free_stack(a, b);
-	i = 0;
 	while (op_s[i])
 	{
-		free(op_s[i]);
+		if (*op_s[i] == 's')
+			swap(op_s[i], a, b);
+		else if (*op_s[i] == 'p')
+			push(op_s[i], a, b);
+		else if (*op_s[i] == 'r')
+			rotate(op_s[i], a, b);
+		if (check_error(a, b))
+		{
+			while (op_s[i])
+			{
+				free(op_s[i]);
+				i++;
+			}
+			free(op_s);
+			return (1);
+		}
 		i++;
 	}
-	free(op_s);
-	exit(1);
-}
-
-void	check_format(t_list **a, t_list **b, char **op_s)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (op_s[i])
-	{
-		while (ft_isalpha(op_s[i][j]))
-			j++;
-		if (op_s[i][j] && op_s[i][j] != '\n')
-			check_format_utils(a, b, op_s);
-		if (!op_s[i][j])
-			return ;
-		j = 0;
-		i++;
-	}
+	return (0);
 }
 
 void	ft_do_op(char *op, t_list **a, t_list **b)
@@ -57,16 +48,10 @@ void	ft_do_op(char *op, t_list **a, t_list **b)
 	op_s = ft_split(op, '\n');
 	free(op);
 	check_format(a, b, op_s);
-	i = 0;
-	while (op_s[i])
+	if (ft_do_op_utils(a, b, op_s))
 	{
-		if (*op_s[i] == 's')
-			swap(op_s[i], a, b);
-		else if (*op_s[i] == 'p')
-			push(op_s[i], a, b);
-		else if (*op_s[i] == 'r')
-			rotate(op_s[i], a, b);
-		i++;
+		ft_free_stack(a, b);
+		exit(1);
 	}
 	i = 0;
 	while (op_s[i])

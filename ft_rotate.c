@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:49:30 by fmartini          #+#    #+#             */
-/*   Updated: 2025/03/31 15:29:15 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:23:43 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,22 @@ void	ft_rrx(t_list **stack)
 
 void	ft_rr(t_list **a, t_list **b)
 {
+	if (!*a || !*b)
+	{
+		ft_ferror(a, b);
+		return ;
+	}
 	ft_rx(a);
 	ft_rx(b);
 }
 
 void	ft_rrr(t_list **a, t_list **b)
 {
+	if (!*a || !*b)
+	{
+		ft_ferror(a, b);
+		return ;
+	}
 	ft_rrx(a);
 	ft_rrx(b);
 }
