@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/04/17 16:25:01 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:02:30 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_error(t_list **a, t_list **b)
 void	ft_ferror(t_list **a, t_list **b)
 {
 	write(1, "Error:\nOPERATION/S ON EMPTY STACK\n", 34);
-	//ft_free_stack(a, b);
 	if (*a)
 		(*a)->error = 1;
 	else if (*b)
