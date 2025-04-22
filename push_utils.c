@@ -6,7 +6,7 @@
 /*   By: francema <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:06:38 by fmartini          #+#    #+#             */
-/*   Updated: 2025/04/22 16:02:30 by francema         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:03:19 by francema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_ferror(t_list **a, t_list **b)
 	if (*a)
 		(*a)->error = 1;
 	else if (*b)
-		(*b)->error =1;
+		(*b)->error = 1;
 }
 
 void	ft_print_list(t_list *lst)
