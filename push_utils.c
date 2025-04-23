@@ -29,7 +29,6 @@ void	ft_error(t_list **a, t_list **b)
 
 void	ft_ferror(t_list **a, t_list **b)
 {
-	write(1, "Error:\nOPERATION/S ON EMPTY STACK\n", 34);
 	if (*a)
 		(*a)->error = 1;
 	else if (*b)
